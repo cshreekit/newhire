@@ -18,6 +18,9 @@ public class EmailApplication {
                 this.dept = setDepartment();
                 System.out.println("Dept:"+" "+ this.dept);
                 System.out.println("Your Email: "+ this.firstName+"."+this.lastName+"."+"@"+this.dept+"."+company+".com");
+                
+                this.password = randomPassword(8);
+                System.out.println("Your password is "+ this.password);
         }
 
         private String setDepartment(){
@@ -35,8 +38,19 @@ public class EmailApplication {
                 }
 
                 return dept;
-        }
 
+        }
+        
+        // add password functionality
+        private String randomPassword(int length){
+        String passwordSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%";
+        char[] password = new char[length];
+        for(int i=0;i<length;i++){
+        int random = (int)(Math.random()* passwordSet.length());
+        password[i] = passwordSet.charAt(random);
+        }
+        return new String (password);
+        }
 
 
 }
